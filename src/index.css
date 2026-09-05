@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased;
+    animation: fadeIn 0.4s ease both;
+  }
+
+  /* Custom styled scrollbars (ported from med.css) */
+  textarea::-webkit-scrollbar,
+  div::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  textarea::-webkit-scrollbar-track,
+  div::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  textarea::-webkit-scrollbar-thumb,
+  div::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+  }
+
+  textarea::-webkit-scrollbar-thumb:hover,
+  div::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #334155 transparent;
+  }
+
+  /* Visible keyboard focus everywhere — the original app had none. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-slate-950;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-slate-900 border border-slate-800 rounded-xl;
+  }
+
+  .field-label {
+    @apply block text-[11px] font-semibold text-slate-400 uppercase tracking-wide mb-1;
+  }
+
+  .field-input {
+    @apply w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm
+           text-slate-100 placeholder:text-slate-600 outline-none transition
+           focus:border-blue-500;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg font-medium transition
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn:active:not(:disabled) {
+    transform: scale(0.96);
+  }
+
+  .btn-primary {
+    @apply btn bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20;
+  }
+
+  .btn-ghost {
+    @apply btn bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700;
+  }
+
+  /* Chat bubbles (ported from med.css) */
+  .chat-bubble-user {
+    background: #2563eb;
+    color: #fff;
+    border-radius: 14px 14px 2px 14px;
+  }
+
+  .chat-bubble-ai {
+    background: #090d16;
+    border: 1px solid #1e293b;
+    color: #cbd5e1;
+    border-radius: 14px 14px 14px 2px;
+  }
+
+  .chat-bubble-ai strong {
+    color: #60a5fa;
+  }
+
+  .chat-bubble-ai ul {
+    @apply list-disc pl-4 my-1.5 space-y-1;
+  }
+
+  .chat-bubble-ai ol {
+    @apply list-decimal pl-4 my-1.5 space-y-1;
+  }
+
+  .chat-bubble-ai p + p {
+    @apply mt-2;
+  }
+
+  .chat-bubble-ai a {
+    @apply text-blue-400 underline;
+  }
+
+  .chat-chip {
+    @apply text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700
+           px-2.5 py-1 rounded-full transition;
+  }
+}
+
+/* Animations (ported from med.css) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #0f172a 25%, #1e293b 50%, #0f172a 75%);
+  background-size: 800px 100%;
+  /* @apply so Tailwind emits the shimmer keyframes alongside the utility. */
+  @apply motion-safe:animate-shimmer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

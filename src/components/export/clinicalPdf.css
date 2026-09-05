@@ -1,0 +1,188 @@
+/* Clinical PDF export document styling.
+ * Ported verbatim from med.css. This is a LIGHT theme used only by the
+ * detached DOM element that html2pdf renders — it never appears in the app UI.
+ * Imported by ClinicalPdfDocument.tsx so Vite bundles it.
+ */
+
+.clinical-pdf-wrapper {
+  width: 800px;
+  background: #ffffff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  color: #0f172a;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 32px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid #2563eb;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin: 0;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-subtitle {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+  background: #f8fafc;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 10.5px;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-table th {
+  background: #f1f5f9;
+  color: #334155;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  padding: 8px 10px;
+  border-bottom: 1px solid #cbd5e1;
+  text-align: left;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+
+.clinical-pdf-wrapper .clinical-badge-normal {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  padding: 2px 6px;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.clinical-pdf-wrapper .clinical-badge-high {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  padding: 2px 6px;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.clinical-pdf-wrapper .clinical-badge-low {
+  background: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+  padding: 2px 6px;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+
+/* Added in the port: the original split table rows across page boundaries. */
+.clinical-pdf-wrapper .clinical-pdf-table tr {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-section {
+  margin-bottom: 14px;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-section-title {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #475569;
+  margin: 0 0 6px;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-summary {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 10.5px;
+  line-height: 1.6;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-conflicts {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 8px;
+  padding: 10px;
+  color: #92400e;
+  font-size: 10px;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-conflicts ul {
+  margin: 4px 0 0 16px;
+  padding: 0;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-field {
+  font-size: 10px;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-field dt {
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 8.5px;
+  letter-spacing: 0.04em;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-field dd {
+  margin: 2px 0 0;
+  color: #0f172a;
+  font-weight: 500;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-disclaimer {
+  margin-top: 18px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 10px;
+  font-size: 9px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-signature {
+  display: flex;
+  gap: 40px;
+  margin-top: 26px;
+}
+
+.clinical-pdf-wrapper .clinical-pdf-signature div {
+  flex: 1;
+  border-top: 1px solid #94a3b8;
+  padding-top: 4px;
+  font-size: 9px;
+  color: #64748b;
+}
